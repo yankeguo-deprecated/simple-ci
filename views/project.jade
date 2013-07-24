@@ -1,0 +1,58 @@
+doctype 5
+html(lang='zh-CN')
+    head
+        title= 'Colorwork CI Server - '+project.name
+        link(href='/style.css',rel='stylesheet',type='text/css')
+    body
+        include header
+        div#wrapper
+            div#project.project
+                if redirect
+                    h1
+                        a(href='/project/'+project.name)= project.name
+                else
+                    h1= project.name
+                div#projectinfo
+                    table(border=1)
+                        tr
+                            td.title 测试状态
+                            if (project.testpass == null)
+                                td(bgcolor="yellow") 未知
+                            if (project.testpass === true)
+                                td(bgcolor="green") 通过
+                            if (project.testpass === false)
+                                td(bgcolor="red") 未通过
+                        tr
+                            td.title 运行状态
+                            if project.proc
+                                td(bgcolor="green") 运行中
+                            else
+                                td(bgcolor="yellow") 停止
+                        tr
+                            td.title 路径
+                            td= project.file
+                if !redirect
+                    div#controlbox
+                        if project.proc
+                            div.control
+                                h3 
+                                    a(href="/project/"+project.name+"/restart") 重启
+                        else
+                            div.control
+                                h3 
+                                    a(href="/project/"+project.name+"/start") 启动
+                        div.control
+                            h3
+                                a(href="/project/"+project.name+"/pull") 更新
+                        div.control
+                            h3 测试
+                div#console
+                    h3 标准输出:
+                    pre= stdout
+                    if stderr
+                        h3.red 标准错误输出:
+                        pre= stderr
+                    if err
+                        h3.red 错误:
+                        pre= err
+        include footer

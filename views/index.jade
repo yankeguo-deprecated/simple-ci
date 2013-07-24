@@ -1,0 +1,42 @@
+doctype 5
+html(lang='zh-CN')
+    head
+        title Colorwork CI Server - Overview
+        link(href="/style.css",rel="stylesheet",type="text/css")
+    body
+        include header
+        div#wrapper
+            div#serverinfo
+                table#serverinfo(border=1)
+                    each bline in hostinfo
+                        tr
+                            td.title= bline[0]
+                            td= bline[1]
+                            td.title= bline[2]
+                            td= bline[3]
+            each pj in projects
+                div.project
+                    if session.logined
+                        h2
+                            a(href='/project/'+pj.name)= pj.name
+                    else
+                        h2= pj.name
+                    table(border=1)
+                        tr
+                            td.title 测试状态
+                            if (pj.testpass == null)
+                                td(bgcolor="yellow") 未知
+                            if (pj.testpass === true)
+                                td(bgcolor="green") 通过
+                            if (pj.testpass === false)
+                                td(bgcolor="red") 未通过
+                        tr 
+                            td.title 运行状态
+                            if pj.proc
+                                td(bgcolor="green") 运行中
+                            else
+                                td(bgcolor="yellow")停止
+                        tr
+                            td.title 路径
+                            td= pj.file
+        include footer

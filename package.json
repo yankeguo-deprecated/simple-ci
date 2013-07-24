@@ -1,0 +1,34 @@
+{
+  "name": "simple-ci",
+  "version": "0.1.0",
+  "description": "Simple CI Server for Node.js",
+  "main": "ci-server.js",
+  "scripts": {},
+  "author": "IREUL Guo <i@ireul.me>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~3.3.4",
+    "underscore": "~1.5.1",
+    "async": "~0.2.9",
+    "commander": "~2.0.0",
+    "jade": "~0.33.0",
+    "sha1": "~1.1.0",
+    "forever": "~0.10.8",
+    "forever-monitor": "~1.2.2"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ireulguo/simple-ci.git"
+  },
+  "keywords": [
+    "ci",
+    "node.js"
+  ],
+  "bugs": {
+    "url": "https://github.com/ireulguo/simple-ci/issues"
+  }
+}

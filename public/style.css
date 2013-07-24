@@ -1,0 +1,124 @@
+body {
+    font-family: Sans-serif;
+}
+
+div#header {
+    height:70px;
+    width:800px;
+    margin:0px auto; 
+    border-bottom:solid #0d58a6;
+}
+div#namebox {
+    float:right;
+    padding-top:20px;
+    text-align:center;
+}
+div#logo {
+    cursor: pointer;
+    cursor: hand;
+    float:left;
+    background-image:url(/images/logo.png);
+    width:500px;
+    height:60px;
+}
+div#wrapper {
+    width:800px;
+    margin:0 auto;
+}
+div#serverinfo{
+    margin:10px auto;
+    border-style:dotted;
+    border-width:2px;
+}
+
+div.project {
+    padding:10px;
+    margin:5px;
+    border-style:solid dotted;
+    border-width:2px 0;
+}
+
+div.project table {
+    width:600px;
+    text-align:center;
+}
+div.project table td.title {
+    width:70px;
+}
+table#serverinfo {
+    border:1px;
+    width:500px;
+}
+table#serverinfo td{
+    text-align:center;
+}
+table#serverinfo td.title {
+    width:70px;
+}
+
+div#footer {
+    padding-top:10px;
+    text-align:center;
+    width:800px;
+    margin:0 auto;
+}
+
+div#form {
+    text-align:center;
+    width:800px;
+    margin:200px auto;
+}
+div#form table{
+    width:400px;
+    margin:0 auto;
+}
+div#form table tr{
+    height:20px;
+}
+div#form table input {
+    height:16px;
+}
+div#form table td.name {
+    text-align:right;
+}
+div#form table td.input {
+    text-align:left;
+    width:250px;
+}
+div#error {
+    margin: 200px auto;
+    text-align:center;
+}
+div#projectinfo {
+    float:left;
+}
+div#controlbox {
+    float:right;
+}
+div.control {
+    margin:2px;
+    float:right;
+    border:2px dotted;
+    text-align:center;
+    width:45px;
+    height:45px;
+}
+div#console {
+    padding:20px;
+    margin:110px auto 0 auto;
+    color:#fff;
+    background-color:#000;
+}
+h3.red {
+    color:yellow;
+}
+pre {
+    font-size;14px;
+}
+pre.red {
+    color:yellow;
+}
+div.center {
+    margin:0 auto;
+    text-align:center;
+}

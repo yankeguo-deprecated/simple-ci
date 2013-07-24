@@ -1,0 +1,13 @@
+doctype 5
+html(lang='cn')
+    head
+        title='Colorwork CI Server - Error'
+        link(href='/style.css',rel='stylesheet',type='text/css')
+        if(redirect!=null)
+            meta(http-equiv="Refresh",content="2;url="+redirect)
+    body
+        include header
+        div#wrapper
+            div#error
+                h2= reason
+        include footer

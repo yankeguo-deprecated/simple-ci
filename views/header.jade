@@ -1,0 +1,9 @@
+div#header(onclick="location.href='/';")
+    div#logo
+    div#namebox
+        if session.logined
+            h3= "欢迎使用,"+session.username+"  "
+                a(href="/logout")登出
+        else if (disablelogin == null)
+            h3= '  '
+                a(href="/login")登陆

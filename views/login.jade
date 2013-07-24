@@ -1,0 +1,25 @@
+doctype 5
+html(lang='zh-CN')
+    head
+        title Colorwork CI Server - Login
+        link(href="/style.css",rel="stylesheet",type="text/css")
+    body
+        include header
+        div#wrapper
+            div#form
+                table
+                    form(action='/login',method='POST')
+                        tr
+                            td.name 用户名:
+                            td.input
+                                input(type='text',name='username')
+                        tr
+                        tr
+                            td.name 密码:
+                            td.input
+                                input(type='password',name='password')
+                        tr
+                        tr
+                            td(colspan="2")
+                                input(type='submit',name='submit',value="登陆")
+        include footer
