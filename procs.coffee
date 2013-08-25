@@ -1,18 +1,20 @@
 forever=require 'forever'
+fs=require 'fs'
 _=require 'underscore'
-db=require './db'
 
-refresh=()->
+module.exports=(app)->
+    {db}=app
     {projects}=db
-    forever.list null,(err,data)->
-        procs=if _.isArray data then data else []
-        procs.forEach (proc,i)->
-            proc.index=i
-        projects.forEach (project)->
-            [project.proc]=procs.filter (proc)->
-                proc.file is project.file
-        null
-
-refresh()
-setInterval refresh,2000
-module.exports.refresh=refresh
+    db.refresh=refresh=()->
+        forever.list null,(err,data=[])->
+            #Add index to proc
+            data.forEach (proc,i)->
+                proc.index=i
+            #add proc to running project
+            projects.forEach (project)->
+                [project.proc]=data.filter (proc)->
+                    proc.file is project.file
+    db.save=()->
+        fs.writeFile app.configfile,JSON.stringify db,null,' '
+    refresh()
+    setInterval refresh,2000

@@ -1,7 +1,7 @@
-db=require '../db'
 sha1=require 'sha1'
 
 module.exports.apply=(app)->
+    {db}=app
     app.get '/login',(req,res)->
         res.render 'login.jade',{session:req.session,disablelogin:true}
 

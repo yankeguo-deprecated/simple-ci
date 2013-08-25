@@ -58,8 +58,8 @@ if bol
             should.exists project.name
             project.name.should.be.a 'string'
 
-            should.exists project.path
-            project.path.should.be.a 'string'
+            should.exists project.file
+            project.file.should.be.a 'string'
 
             should.exists project.envs
             project.envs.should.be.an.instanceOf Array

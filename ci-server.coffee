@@ -8,7 +8,8 @@ defaults=require './defaults'
 
 app=express()
 
-db=app.db=require "#{HOME}/#{defaults.configfile.name}"
+app.configfile="#{HOME}/#{defaults.configfile.name}"
+db=app.db=require app.configfile
 
 app.enable 'trust proxy'
 app.engine 'jade',jade.__express
@@ -22,12 +23,12 @@ app.use express.bodyParser()
 app.use express.static __dirname+'/public'
 
 #Add Proto to Express.Response
-require './error.js'
+require './error'
 #Auto Refresh Forever List Every 5 sec instead For Each Request
-require './procs.js'
+(require './procs')  app
 #Load Params Filter
-(require './params.js') app
+(require './params') app
 #Load Router
-(require './routers') app
+(require './routers')   app
 
 app.listen db.port
