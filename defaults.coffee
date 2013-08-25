@@ -1,4 +1,5 @@
 module.exports=
+    lockfile:'.simple-ci.lock'
     configfile:
         name:'.simple-ci.json'
         content:
