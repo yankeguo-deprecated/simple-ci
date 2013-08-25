@@ -1,9 +1,14 @@
 process.title='ci-server'
 
+{HOME}=process.env
+
 express=require 'express'
 jade=require 'jade'
+defaults=require './defaults'
 
 app=express()
+
+db=app.db=require "#{HOME}/#{defaults.configfile.name}"
 
 app.enable 'trust proxy'
 app.engine 'jade',jade.__express
@@ -25,4 +30,4 @@ require './procs.js'
 #Load Router
 (require './routers') app
 
-app.listen 4100
+app.listen db.port
