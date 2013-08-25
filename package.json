@@ -15,14 +15,15 @@
     "sha1": "~1.1.0",
     "forever": "~0.10.8",
     "forever-monitor": "~1.2.2",
-    "stylus": "~0.37.0"
+    "stylus": "~0.37.0",
+    "should": "~1.2.2"
   },
   "directories": {
     "test": "test",
-    "bin":"bin"
+    "bin": "bin"
   },
-  "bin":{
-      "simple-ci":"./bin/simple-ci"
+  "bin": {
+    "simple-ci": "./bin/simple-ci"
   },
   "devDependencies": {},
   "repository": {
