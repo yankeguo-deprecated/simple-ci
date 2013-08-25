@@ -3,3 +3,4 @@ node_modules
 bin/simpleci
 .DS_Store
 db/db.json
+!public/js/*.js
