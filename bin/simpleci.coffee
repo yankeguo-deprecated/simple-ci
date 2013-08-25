@@ -5,6 +5,7 @@ server=require.resolve '../ci-server'
 
 fs=require 'fs'
 should=require 'should'
+{exec}=require 'child_process'
 
 log=console.log.bind console
 error=console.log.bind console,'[ERROR]:'
@@ -97,17 +98,27 @@ if command is 'start'
         error "If you are sure this is a fault, remove lockfile manully."
         process.exit 1
     fs.writeFileSync lockpath,'lock'
-    log server
+    child=exec "forever start --minUptime 1000 --spinSleepTime 1000 --plain #{server}",{env:process.env},(err)->
+        if err?
+            error err
+            process.exit 1
+        else
+            log '√ Done.'
+    child.stderr.on 'data',error
+    child.stdout.on 'data',log
 else if command is 'stop'
     log '* Stopping ...\n'
-    try
-        fs.unlinkSync lockpath
-    catch ex
-        if ex.code is 'ENOENT'
-            error "Lockfile ~/#{lockfile} not found."
-        else
-            error "Failed to remove lockfile ~/#{lockfile}, remove it manully."
-        process.exit 1
+    child=exec "forever stop --plain #{server}",{env:process.env},(err)->
+        error err if err?
+        try
+            fs.unlinkSync lockpath
+        catch ex
+            if ex.code is 'ENOENT'
+                error "Lockfile ~/#{lockfile} not found.\n!! Donnot remove it manully."
+            else
+                error "Failed to remove lockfile ~/#{lockfile}, remove it manully."
+                process.exit 1
+        log '√ Done.'
 else
     error 'No command specified, use "simple-ci start" or "simple-ci stop".'
     process.exit 1
