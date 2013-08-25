@@ -6,7 +6,5 @@ all:
 	chmod +x ./bin/simpleci
 clean:
 	rm -f *.js
-	rm -f ./db/*.js
 	rm -f ./routers/*.js
-	rm -f ./test/*.js
 	rm -f ./bin/simpleci
