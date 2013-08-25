@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 {configfile}=require '../defaults'
 {name,content}=configfile
 
@@ -84,3 +83,5 @@ else
     log 'Done.\n'
     log 'Default username: admin '
     log 'Default password: 123456 \n'
+
+log process.argv
