@@ -14,10 +14,15 @@
     "jade": "~0.33.0",
     "sha1": "~1.1.0",
     "forever": "~0.10.8",
-    "forever-monitor": "~1.2.2"
+    "forever-monitor": "~1.2.2",
+    "stylus": "~0.37.0"
   },
   "directories": {
-    "test": "test"
+    "test": "test",
+    "bin":"bin"
+  },
+  "bin":{
+      "simple-ci":"./bin/simple-ci"
   },
   "devDependencies": {},
   "repository": {
