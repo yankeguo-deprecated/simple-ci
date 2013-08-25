@@ -2,25 +2,37 @@ doctype 5
 html(lang='zh-CN')
     head
         title Colorwork CI Server - Login
-        link(href="css/style.css",rel="stylesheet",type="text/css")
-        link(href="css/bootstrap.min.css",rel="stylesheet",media="screen")
+        link(href="/css/bootstrap.min.css",rel="stylesheet",media="screen")
+        style(type='text/css')
+            .center {
+                display:table;
+                width:auto;
+                margin-left:auto;
+                margin-right:auto;
+            }
     body
-        include header
-        div#wrapper
-            div#form
-                table
-                    form(action='/login',method='POST')
-                        tr
-                            td.name 用户名:
-                            td.input
-                                input(type='text',name='username')
-                        tr
-                        tr
-                            td.name 密码:
-                            td.input
-                                input(type='password',name='password')
-                        tr
-                        tr
-                            td(colspan="2")
-                                input(type='submit',name='submit',value="登陆")
+        div.container
+            div.navbar
+                div.navbar-inner
+                    a.brand Simple-CI
+                    ul.nav
+                        li
+                            a(href='/') Home
+                        if session.logined
+                            li
+                                a(href='/projects') Projects
+        div.row
+            div.center
+                form.form-horizontal(action='/login',method='POST')
+                    div.control-group
+                        label.control-label(for='inputUsername') User Name
+                        div.controls
+                            input#inputUsername(type='text',placeholder='User name',name='username')
+                    div.control-group
+                        label.control-label(for='inputPassword') Password
+                        div.controls
+                            input#inputPassword(type='password',placeholder='Password',name='password')
+                    div.control-group
+                        div.controls
+                            button.btn(type='submit') Sign in
         include footer

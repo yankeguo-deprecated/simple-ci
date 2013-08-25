@@ -11,19 +11,7 @@ html(lang='zh-CN')
                     ul.nav
                         li.active
                             a(href='/') Home
-                        if session.logined
-                            li
-                                a(href='/projects') Projects
-                    ul.nav.pull-right
-                        if session.logined
-                            li
-                                a= 'User: ' + session.username
-                            button.btn(onclick="location.href='/logout'")
-                                p Logout
-                        else
-                            button.btn(onclick="location.href='/login'")
-                                p Login
-            h2 System Infomation
+            h2 系统信息
             table.table.table-bordered
                 each bline in hostinfo
                     tr.info
