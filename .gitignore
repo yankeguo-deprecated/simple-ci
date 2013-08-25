@@ -1,4 +1,5 @@
 node_modules
 *.js
+bin/simple-ci
 .DS_Store
 db/db.json

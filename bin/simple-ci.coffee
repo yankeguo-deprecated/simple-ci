@@ -4,7 +4,7 @@
 fs=require 'fs'
 should=require 'should'
 
-log=console.log.bind console
+log=console.log.bind console,'  '
 error=console.log.bind console,'[ERROR]: '
 
 log '\n====== Simple CI Server for Node.js ======\n'
@@ -84,4 +84,6 @@ else
     log 'Default username: admin '
     log 'Default password: 123456 \n'
 
-log process.argv
+command=process.argv[2]
+
+log command
