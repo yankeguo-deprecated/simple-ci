@@ -43,8 +43,8 @@ if bol
 
         config.admins.forEach (admin)->
             should.exists admin
-            should.exists admin.name
-            admin.name.should.be.a 'string'
+            should.exists admin.username
+            admin.username.should.be.a 'string'
 
             should.exists admin.password
             admin.password.should.be.a 'string'
@@ -120,5 +120,5 @@ else if command is 'stop'
                 process.exit 1
         log '√ Done.'
 else
-    error 'No command specified, use "simple-ci start" or "simple-ci stop".'
-    process.exit 1
+    error 'No command specified, use "simple-ci start" or "simple-ci stop" to control deamon.'
+    require server
