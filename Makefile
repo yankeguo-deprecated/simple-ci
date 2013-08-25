@@ -5,3 +5,4 @@ clean:
 	rm -f ./db/*.js
 	rm -f ./routers/*.js
 	rm -f ./test/*.js
+	rm -f ./bin/*.js

@@ -10,7 +10,7 @@ error=console.log.bind console,'[ERROR]: '
 
 log '\n====== Simple CI Server for Node.js ======\n'
 
-log 'Environment Check ...'
+log 'Checking environment ...\n'
 
 home=process.env.HOME
 
@@ -18,7 +18,9 @@ unless home?
     error 'Where is your home folder ? Check your $HOME varable.'
     process.exit 1
 
-log 'Done.\n'
+log "Your $HOME is #{home} "
+
+log '\nDone.\n'
 
 path="#{home}/#{name}"
 
@@ -74,7 +76,7 @@ if bol
 
 else
     log "Config file ~/#{name} not found, creating ..."
-    err=fs.writeFileSync path,JSON.stringify content
+    err=fs.writeFileSync path,JSON.stringify content,null,' '
     if err?
         error "Cannot create defult config file."
         error err
